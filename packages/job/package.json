@@ -5,8 +5,8 @@
   "license": "MIT",
   "scripts": {
     "build": "tsc --build --force",
-    "start": "TS_NODE_BASEURL=dist node -r tsconfig-paths/register dist/api/index.js",
-    "start:subscriber": "TS_NODE_BASEURL=dist node -r tsconfig-paths/register dist/subscribers/index.js",
+    "start": "node -r dotenv/config -r tsconfig-paths/register dist/api/index.js",
+    "start:subscriber": "node -r dotenv/config -r tsconfig-paths/register dist/subscribers/index.js",
     "dev": "nodemon",
     "lint": "eslint --fix ."
   },
@@ -55,7 +55,9 @@
     "eslint-plugin-import": "^2.24.2",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-prettier": "^4.0.0",
+    "nodemon": "^3.1.9",
     "prettier": "^2.4.1",
+    "ts-node": "^10.9.2",
     "tsconfig-paths": "^4.0.0",
     "typescript": "^4.7.4"
   }

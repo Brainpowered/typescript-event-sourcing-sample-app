@@ -96,7 +96,7 @@ cp .env_template .env
 
 ### Run Services
 
-1. Run Both the Data Layer and the App Layer in One go: 
+1. Run Both the Data Layer and the API Layer in One go: 
 ```bash
  docker-compose -f docker-compose.yml -f docker-compose.app.yml up -d
  ```
@@ -105,7 +105,7 @@ cp .env_template .env
  docker-compose up -d
  ```
 
-### Dev Debug Specific App Layer Services
+### Run/Debug Specific API Layer Services
 
 1. Using this Yarn command, the `application` workspace will be triggered with the `dev` package script
 ```bash
@@ -116,8 +116,18 @@ yarn application dev
 yarn job dev
 ```
 
+### Other Commands
+These commands are also available:
+```bash
+yarn application build
+yarn application start 
+yarn application dev 
+yarn application lint
+```
 
+### Testing the API
+1. Postman: `TS-EventSource-Sample.postman_collection` (import this collection for testing all API endpoints)
 
  ## Troubleshooting
 - Cassandra/Kafka not initialising: Ensure Git Checkout uses UNIX style Line-Endings due to the Unix bash scripts required to setup those services (see `./setup`)
-- Typescript Environment: Ensure your editor (VSCode) is using the Project Typescript (defined in package) and not your Global Typescript
+- Typescript Environment: Ensure your editor (VSCode) is using the Project Typescript (defined in package) and not your Global Typescript (ie: `.vscode/settings.json` file should have something similar to this: `"typescript.tsdk": "node_modules\\typescript\\lib"`)
